@@ -69,10 +69,14 @@ struct ContentView: View {
             .padding(20)
             
             
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Image("fon"))
         
-            .background(Image("fon"))
-            .ignoresSafeArea()
+        .ignoresSafeArea()
+        
+        
+            
         
         
     }
