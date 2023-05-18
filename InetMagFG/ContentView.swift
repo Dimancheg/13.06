@@ -58,17 +58,15 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity)
                         .font(.title2.bold())
                         .cornerRadius(20)
-                        .padding(8)
-                        .padding(.horizontal)
                         .foregroundColor(.white)
                     
                 }
                 
             }
-            .padding(.vertical)
+            .padding(.vertical,40)
             .background(Color("whiteOp"))
             .cornerRadius(10)
-            .padding()
+            .padding(20)
             
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
