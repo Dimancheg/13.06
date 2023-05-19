@@ -8,8 +8,32 @@
 import SwiftUI
 
 struct Catalog: View {
+    
+    let layaout = [GridItem(.adaptive(minimum: screan.width))]
+    
     var body: some View {
-        Text("Каталог!!!")
+        ScrollView(.vertical, showsIndicators: false){
+            Section(){
+                ScrollView(.vertical, showsIndicators: false){
+                    LazyVGrid(columns: layaout){
+                        ForEach(CatalogViewModel.shared.products, id: \.id){item in
+                            NavigationLink{
+                               ProduktDitaleView(product: item)
+                            } label: {
+                                ProductCell(product: item)
+                                    .foregroundColor(.black)
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    .padding()
+                }
+                
+            }
+        }
+        .navigationTitle("Товары")
     }
 }
 

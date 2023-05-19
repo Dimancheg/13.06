@@ -10,7 +10,10 @@ import SwiftUI
 struct MainTabBar: View {
     var body: some View {
         TabView{
-            Catalog()
+            NavigationView{
+                Catalog()
+            }
+            
                 .tabItem {
                     VStack{
                         Image(systemName: "folder.fill")

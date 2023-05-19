@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let screan = UIScreen.main.bounds
+
 @main
 struct InetMagFGApp: App {
     var body: some Scene {
