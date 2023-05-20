@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductCell: View {
-   
+    
     var product: Product
     
     var body: some View {
@@ -27,7 +27,7 @@ struct ProductCell: View {
                 Text("Цена: \(product.price)₪")
                     .bold()
                 Text("Количество: \(product.count) шт.")
-                    
+                
             }
             Spacer()
         }
@@ -42,10 +42,13 @@ struct ProductCell: View {
 struct ProductCell_Previews: PreviewProvider {
     static var previews: some View {
         ProductCell(product: Product(id: "1",
-                                    name: "Футболка белая карман",
+                                     name: "Футболка белая карман",
                                      image: "mai",
-                                    group: "Футболки",
-                                    price: 200,
-                                    count: 5))
+                                     group: "Футболки",
+                                     price: 200,
+                                     count: 5,
+                                     ashdod: ["XL","XXL","L","M"],
+                                     rishon: ["L","M"],
+                                     batyam: ["XXL","L"]))
     }
 }

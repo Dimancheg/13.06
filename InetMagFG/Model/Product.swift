@@ -14,4 +14,7 @@ struct Product {
     var group: String
     var price: Int
     var count: Int
+    var ashdod: [String]
+    var rishon: [String]
+    var batyam: [String]
 }
