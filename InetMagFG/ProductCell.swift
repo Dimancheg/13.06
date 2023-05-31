@@ -19,7 +19,7 @@ struct ProductCell: View {
                 .frame(width: screan.width * 0.25)
                 .clipped()
                 .cornerRadius(10)
-            
+        
             VStack(alignment: .leading){
                 Text(product.name)
                     .font(.title.bold())
@@ -35,7 +35,7 @@ struct ProductCell: View {
         .background(.white)
         .cornerRadius(10)
         .shadow(radius: 5)
-        
+                
     }
 }
 
@@ -46,7 +46,6 @@ struct ProductCell_Previews: PreviewProvider {
                                      image: "mai",
                                      group: "Футболки",
                                      price: 200,
-                                     count: 5,
                                      ashdod: ["XL","XXL","L","M"],
                                      rishon: ["L","M"],
                                      batyam: ["XXL","L"]))

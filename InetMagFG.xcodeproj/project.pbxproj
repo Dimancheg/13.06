@@ -15,6 +15,7 @@
 		B864BC112A175C6200312EDC /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864BC102A175C6200312EDC /* Catalog.swift */; };
 		B864BC132A175CD200312EDC /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864BC122A175CD200312EDC /* Cart.swift */; };
 		B864BC152A175D0100312EDC /* Profil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864BC142A175D0100312EDC /* Profil.swift */; };
+		B8844BAE2A1A95190088BB4F /* InagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8844BAD2A1A95190088BB4F /* InagePicker.swift */; };
 		B8A67F022A15FD8B0063B90E /* InetMagFGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A67F012A15FD8B0063B90E /* InetMagFGApp.swift */; };
 		B8A67F042A15FD8B0063B90E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A67F032A15FD8B0063B90E /* AuthView.swift */; };
 		B8A67F062A15FD8F0063B90E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8A67F052A15FD8F0063B90E /* Assets.xcassets */; };
@@ -30,6 +31,8 @@
 		B864BC102A175C6200312EDC /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		B864BC122A175CD200312EDC /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		B864BC142A175D0100312EDC /* Profil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profil.swift; sourceTree = "<group>"; };
+		B8844BAC2A1A945A0088BB4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B8844BAD2A1A95190088BB4F /* InagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InagePicker.swift; sourceTree = "<group>"; };
 		B8A67EFE2A15FD8B0063B90E /* InetMagFG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InetMagFG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8A67F012A15FD8B0063B90E /* InetMagFGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InetMagFGApp.swift; sourceTree = "<group>"; };
 		B8A67F032A15FD8B0063B90E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 				B864BC122A175CD200312EDC /* Cart.swift */,
 				B864BC142A175D0100312EDC /* Profil.swift */,
 				B864BC102A175C6200312EDC /* Catalog.swift */,
+				B8844BAD2A1A95190088BB4F /* InagePicker.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -105,6 +109,7 @@
 		B8A67F002A15FD8B0063B90E /* InetMagFG */ = {
 			isa = PBXGroup;
 			children = (
+				B8844BAC2A1A945A0088BB4F /* Info.plist */,
 				B8A67F012A15FD8B0063B90E /* InetMagFGApp.swift */,
 				B8068BFE2A1798B800B39E8B /* Model */,
 				B8068BF82A1773B600B39E8B /* View */,
@@ -201,6 +206,7 @@
 				B8A67F022A15FD8B0063B90E /* InetMagFGApp.swift in Sources */,
 				B8068BFC2A1787E200B39E8B /* ProductCell.swift in Sources */,
 				B864BC112A175C6200312EDC /* Catalog.swift in Sources */,
+				B8844BAE2A1A95190088BB4F /* InagePicker.swift in Sources */,
 				B8068BFA2A17740A00B39E8B /* Product.swift in Sources */,
 				B8068C002A1798FA00B39E8B /* CatalogViewModel.swift in Sources */,
 			);
@@ -334,6 +340,10 @@
 				DEVELOPMENT_TEAM = N79RXXG75D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InetMagFG/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Разрешите использовать камеру";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Разрешите использовать фото";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -363,6 +373,10 @@
 				DEVELOPMENT_TEAM = N79RXXG75D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InetMagFG/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Разрешите использовать камеру";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Разрешите использовать фото";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -13,8 +13,16 @@ struct Product {
     var image: String
     var group: String
     var price: Int
-    var count: Int
     var ashdod: [String]
     var rishon: [String]
     var batyam: [String]
+    
+    var count: Int {
+        return ashdod.count + rishon.count + batyam.count
+    }
+    
+//    func rename(of d: Product, to newName: String){
+//        d.name = newName
+//    
+//    }
 }
