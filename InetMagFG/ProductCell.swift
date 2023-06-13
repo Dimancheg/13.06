@@ -39,15 +39,15 @@ struct ProductCell: View {
     }
 }
 
-struct ProductCell_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductCell(product: Product(id: "1",
-                                     name: "Футболка белая карман",
-                                     image: "mai",
-                                     group: "Футболки",
-                                     price: 200,
-                                     ashdod: ["XL","XXL","L","M"],
-                                     rishon: ["L","M"],
-                                     batyam: ["XXL","L"]))
-    }
-}
+//struct ProductCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProductCell(product: Product(id: "1",
+//                                     name: "Футболка белая карман",
+//                                     image: "mai",
+//                                     group: "Футболки",
+//                                     price: 200,
+//                                     ashdod: ["XL","XXL","L","M"],
+//                                     rishon: ["L","M"],
+//                                     batyam: ["XXL","L"]))
+//    }
+//}

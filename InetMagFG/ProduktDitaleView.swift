@@ -18,74 +18,74 @@ struct ProduktDitaleView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .leading){
-            
-                    Image(product.image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: screan.height * 0.7)
-                        .clipped()
+                
+                Image(product.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: screan.height * 0.7)
+                    .clipped()
                 if !swich {
                     Text("\(product.name)!")
-                            .font(.title.bold())
-                            .padding()
+                        .font(.title.bold())
+                        .padding()
                 }else {
                     HStack{
                         TextField(product.name, text: $newNameProduct)
                             .font(.title.bold())
-                            
+                        
                             .padding(3)
                             .background(Color("ser"))
                             .cornerRadius(10)
                             .padding()
-                         
+                        
                     }
                     
                 }
                 
-                    HStack{
-                        Text("Ашдод:")
-                            .font(.title2.bold())
-                            .padding(.horizontal)
-                        ForEach(product.ashdod, id: \.self) { item in
-                            Text(item)
-                                .font(.title3.bold())
-                                .padding(4)
-                                .padding(.horizontal, 8)
-                                .background(Color(.green))
-                                .cornerRadius(10)
-                        }
+                HStack{
+                    Text("Ашдод:")
+                        .font(.title2.bold())
+                        .padding(.horizontal)
+                    ForEach(product.ashdod, id: \.self) { item in
+                        Text(item)
+                            .font(.title3.bold())
+                            .padding(4)
+                            .padding(.horizontal, 8)
+                            .background(Color(.green))
+                            .cornerRadius(10)
                     }
-                    HStack{
-                        Text("Ришон:")
-                            .font(.title2.bold())
-                            .padding(.horizontal)
-                        ForEach(product.rishon, id: \.self) { item in
-                            Text(item)
-                                .font(.title3.bold())
-                                .padding(4)
-                                .padding(.horizontal, 8)
-                                .background(Color(.green))
-                                .cornerRadius(10)
-                        }
+                }
+                HStack{
+                    Text("Ришон:")
+                        .font(.title2.bold())
+                        .padding(.horizontal)
+                    ForEach(product.rishon, id: \.self) { item in
+                        Text(item)
+                            .font(.title3.bold())
+                            .padding(4)
+                            .padding(.horizontal, 8)
+                            .background(Color(.green))
+                            .cornerRadius(10)
                     }
-                    HStack{
-                        Text("Бат-Ям:")
-                            .font(.title2.bold())
-                            .padding(.horizontal)
-                            
-                        ForEach(product.batyam, id: \.self) { item in
-                            Text(item)
-                                .font(.title3.bold())
-                                .padding(4)
-                                .padding(.horizontal, 8)
-                                .background(Color(.green))
-                                .cornerRadius(10)
-                        }
-                        
-                    }
-                    .padding(.bottom, 100)
+                }
+                HStack{
+                    Text("Бат-Ям:")
+                        .font(.title2.bold())
+                        .padding(.horizontal)
                     
+                    ForEach(product.batyam, id: \.self) { item in
+                        Text(item)
+                            .font(.title3.bold())
+                            .padding(4)
+                            .padding(.horizontal, 8)
+                            .background(Color(.green))
+                            .cornerRadius(10)
+                    }
                     
+                }
+                .padding(.bottom, 100)
+                
+                
                 
                 
                 
@@ -110,13 +110,13 @@ struct ProduktDitaleView: View {
 
 struct ProduktDitaleView_Previews: PreviewProvider {
     static var previews: some View {
-        ProduktDitaleView(product: Product(id: "1",
-                                           name: "Футболка белая карман",
-                                           image: "mai",
-                                           group: "Футболки",
-                                           price: 200,
-                                           ashdod: ["XL","XXL","L","M"],
-                                           rishon: ["L","M"],
-                                           batyam: ["XXL","L"]))
+        ProduktDitaleView(product: Product(
+            name: "Футболка белая карман",
+            image: "mai",
+            group: "Футболки",
+            price: 200,
+            ashdod: ["XL","XXL","L","M"],
+            rishon: ["L","M"],
+            batyam: ["XXL","L"]))
     }
 }
