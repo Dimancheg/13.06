@@ -17,7 +17,7 @@ struct Catalog: View {
                 Section(){
                     ScrollView(.vertical, showsIndicators: false){
                         LazyVGrid(columns: layaout){
-                            ForEach(CatalogViewModel.shared.products, id: \.id){item in
+                            ForEach(Product.products, id: \.id){item in
                                 NavigationLink{
                                    ProduktDitaleView(product: item)
                                 } label: {

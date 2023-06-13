@@ -38,6 +38,7 @@ struct Product: Identifiable, Codable {
 extension Product {
     static let products:[Product] = [
         Product(
+            id: UUID(),
             name: "Футболка белая карман",
             image: "mai",
             group: "Футболки",
@@ -46,6 +47,7 @@ extension Product {
             rishon: ["L","M"],
             batyam: ["XXL","L"]),
         Product(
+            id: UUID(),
             name: "Платье белое кружева",
             image: "plb",
             group: "Платья",
@@ -54,6 +56,7 @@ extension Product {
             rishon: ["L","M"],
             batyam: ["XXL","L"]),
         Product(
+            id: UUID(),
             name: "Платье голобуе цветы",
             image: "pls",
             group: "Платья",
@@ -62,6 +65,7 @@ extension Product {
             rishon: ["L","M"],
             batyam: ["XXL","L"]),
         Product(
+            id: UUID(),
             name: "Комбинезон Шик",
             image: "sht",
             group: "Комбинезоны",
@@ -70,6 +74,7 @@ extension Product {
             rishon: ["1Size","1Size"],
             batyam: ["1Size"]),
         Product(
+            id: UUID(),
             name: "Юбка короткая вышевка",
             image: "ub1",
             group: "Юбки",

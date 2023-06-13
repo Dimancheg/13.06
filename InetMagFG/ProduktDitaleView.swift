@@ -111,6 +111,7 @@ struct ProduktDitaleView: View {
 struct ProduktDitaleView_Previews: PreviewProvider {
     static var previews: some View {
         ProduktDitaleView(product: Product(
+            id: UUID(),
             name: "Футболка белая карман",
             image: "mai",
             group: "Футболки",
