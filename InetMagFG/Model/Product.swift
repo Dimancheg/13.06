@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Product {
-    var id: String
+struct Product: Identifiable, Codable {
+    let id: UUID
     var name: String
     var image: String
     var group: String
@@ -20,9 +20,16 @@ struct Product {
     var count: Int {
         return ashdod.count + rishon.count + batyam.count
     }
-    
-//    func rename(of d: Product, to newName: String){
-//        d.name = newName
-//    
-//    }
+
+    init(id: UUID, name: String, image: String, group: String, price: Int, ashdod: [String], rishon: [String], batyam: [String]) {
+        self.id = id
+        self.name = name
+        self.image = image
+        self.group = group
+        self.price = price
+        self.ashdod = ashdod
+        self.rishon = rishon
+        self.batyam = batyam
+    }
+
 }
