@@ -39,6 +39,7 @@ struct AuthView: View {
                     .cornerRadius(10)
                     .padding(8)
                     .padding(.horizontal)
+                    
                 if !isAuth {
                     SecureField("Введите пароль...", text: $confirmPass)
                         .padding()
@@ -46,6 +47,7 @@ struct AuthView: View {
                         .cornerRadius(10)
                         .padding(8)
                         .padding(.horizontal)
+                        
                 }
                 Button{
                     if isAuth {

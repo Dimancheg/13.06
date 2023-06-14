@@ -37,8 +37,12 @@ struct ProduktDitaleView: View {
                                 product.name = newValue
                             }
                             .font(.title.bold())
+                            
+                            .padding(3)
                             .cornerRadius(10)
-                            .padding()
+                            .border(.black, width: 1)
+                            .padding(13)
+                            
                         
                         TextField(String(product.price), text: Binding(
                             get: {String(product.price)},
