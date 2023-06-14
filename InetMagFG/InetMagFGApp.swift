@@ -13,7 +13,8 @@ let screan = UIScreen.main.bounds
 struct InetMagFGApp: App {
     var body: some Scene {
         WindowGroup {
-            AuthView()
+            //AuthView()
+            AuthView(products: Product.products)
         }
     }
 }

@@ -16,6 +16,8 @@ struct AuthView: View {
     
     @State private var isTabViewShow = false
     
+    @State var products: [Product]
+    
     var body: some View {
         VStack (spacing: 40){
             Text(isAuth ? "Авторизация" : "Регистрация")
@@ -98,7 +100,7 @@ struct AuthView: View {
         .ignoresSafeArea()
         .animation(Animation.easeInOut(duration: 0.5), value: isAuth)
         .fullScreenCover(isPresented: $isTabViewShow){
-            MainTabBar()
+            MainTabBar(products: products)
         }
             
         
@@ -108,6 +110,6 @@ struct AuthView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView()
+        AuthView(products: Product.products)
     }
 }

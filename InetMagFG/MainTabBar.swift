@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct MainTabBar: View {
+    @State var products: [Product]
+    
     var body: some View {
         TabView{
             NavigationView{
-                Catalog()
+                Catalog(products: products)
             }
             
                 .tabItem {
@@ -40,6 +42,6 @@ struct MainTabBar: View {
 
 struct MainTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabBar()
+        MainTabBar(products: Product.products)
     }
 }

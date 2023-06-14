@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct ProduktDitaleView: View {
-    var product: Product
+    @State var product: Product
     @State private var swich: Bool = false
     
     @State private var newNameProduct = ""
-    
     
     
     var body: some View {
@@ -25,20 +24,40 @@ struct ProduktDitaleView: View {
                     .frame(height: screan.height * 0.7)
                     .clipped()
                 if !swich {
-                    Text("\(product.name)!")
+                    Text("\(product.name)")
                         .font(.title.bold())
                         .padding()
+                    Text("\(product.price)₪")
+                        .font(.title)
+                        .padding(.horizontal)
                 }else {
-                    HStack{
+                    
                         TextField(product.name, text: $newNameProduct)
+                            .onChange(of: newNameProduct){ newValue in
+                                product.name = newValue
+                            }
                             .font(.title.bold())
-                        
-                            .padding(3)
-                            .background(Color("ser"))
                             .cornerRadius(10)
                             .padding()
                         
-                    }
+                        TextField(String(product.price), text: Binding(
+                            get: {String(product.price)},
+                            set: { newValue in
+                                if let intValue = Int(newValue){
+                                    product.price = intValue
+                                }
+                                
+                            }
+                                                              ))
+                            
+                            .font(.title)
+                            .keyboardType(.numberPad)
+                        
+                            
+                            .cornerRadius(10)
+                            .padding(.horizontal)
+                        
+                    
                     
                 }
                 
@@ -110,14 +129,6 @@ struct ProduktDitaleView: View {
 
 struct ProduktDitaleView_Previews: PreviewProvider {
     static var previews: some View {
-        ProduktDitaleView(product: Product(
-            id: UUID(),
-            name: "Футболка белая карман",
-            image: "mai",
-            group: "Футболки",
-            price: 200,
-            ashdod: ["XL","XXL","L","M"],
-            rishon: ["L","M"],
-            batyam: ["XXL","L"]))
+        ProduktDitaleView(product: Product.products[0])
     }
 }
