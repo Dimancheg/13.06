@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProduktDitaleView: View {
-    @State var product: Product
+    @Binding var product: Product
     @State private var swich: Bool = false
     
     @State private var newNameProduct = ""
@@ -133,6 +133,6 @@ struct ProduktDitaleView: View {
 
 struct ProduktDitaleView_Previews: PreviewProvider {
     static var previews: some View {
-        ProduktDitaleView(product: Product.products[0])
+        ProduktDitaleView(product: .constant(Product.products[0]))
     }
 }

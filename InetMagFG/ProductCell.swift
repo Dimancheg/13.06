@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductCell: View {
     
-    var product: Product
+    @Binding var product: Product
     
     var body: some View {
         HStack(alignment: .top){

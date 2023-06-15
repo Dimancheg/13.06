@@ -10,7 +10,7 @@ import SwiftUI
 struct Catalog: View {
     
     let layaout = [GridItem(.adaptive(minimum: screan.width))]
-    @State var products: [Product]
+    @Binding var products: [Product]
     
     var body: some View {
         
@@ -18,7 +18,7 @@ struct Catalog: View {
                 Section(){
                     ScrollView(.vertical, showsIndicators: false){
                         LazyVGrid(columns: layaout){
-                            ForEach(products){product in
+                            ForEach($products){product in
                                 NavigationLink{
                                    ProduktDitaleView(product: product)
                                 } label: {
@@ -49,6 +49,6 @@ struct Catalog: View {
 
 struct Catalog_Previews: PreviewProvider {
     static var previews: some View {
-        Catalog(products: Product.products)
+        Catalog(products: .constant(Product.products))
     }
 }

@@ -13,7 +13,7 @@ struct MainTabBar: View {
     var body: some View {
         TabView{
             NavigationView{
-                Catalog(products: products)
+                Catalog(products: $products)
             }
             
                 .tabItem {
