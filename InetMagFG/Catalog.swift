@@ -9,46 +9,81 @@ import SwiftUI
 
 struct Catalog: View {
     
-    let layaout = [GridItem(.adaptive(minimum: screan.width))]
+    //let layaout = [GridItem(.adaptive(minimum: screan.width))]
     @Binding var products: [Product]
+    let saveAction: () -> Void
     
     var body: some View {
-        
-            ScrollView(.vertical, showsIndicators: false){
-                Section(){
-                    ScrollView(.vertical, showsIndicators: false){
-                        LazyVGrid(columns: layaout){
-                            ForEach($products){product in
-                                NavigationLink{
-                                   ProduktDitaleView(product: product)
-                                } label: {
-                                    ProductCell(product: product)
-                                        .foregroundColor(.black)
-                                        
-                                    
-                                }
-                                
-                            }
+        ZStack{
+            List{
+                ForEach($products){product in
+                    ZStack{
+                        NavigationLink(destination: ProduktDitaleView(product: product)){
+                            EmptyView()
                         }
-                        .padding()
+                                .opacity(0.0)
+                            ProductCell(product: product)
+                                .foregroundColor(.black)
+                        }
+                        .swipeActions{
+                            Button(action: {
+                                
+                            }){
+                                Label("Удалить", systemImage: "trash")
+                            }
+                            .tint(.red)
+                        }
+                    }
+                }
+                .listStyle(PlainListStyle())
+                .listRowSeparator(.hidden)
+                .navigationBarTitle("Товары")
+                .toolbar{
+                    NavigationLink(destination: AddProdukt()){
+                     Image(systemName: "plus")
+                            .font(.title)
+                            .padding()
                     }
                 }
             }
-            .navigationTitle("Товары")
-            .toolbar{
-                Button(action: {}){
-                    Image(systemName: "plus")
-                        .font(.title)
-                        .padding()
-                }
-            }
-          
+            .navigationViewStyle(StackNavigationViewStyle())
+        }
         
-    }
+//        ScrollView(.vertical, showsIndicators: false){
+//            Section(){
+//                ScrollView(.vertical, showsIndicators: false){
+//                    LazyVGrid(columns: layaout){
+//                        ForEach($products){product in
+//                            NavigationLink{
+//                                ProduktDitaleView(product: product)
+//                            } label: {
+//                                ProductCell(product: product)
+//                                    .foregroundColor(.black)
+//
+//
+//                            }
+//
+//                        }
+//                    }
+//                    .padding()
+//                }
+//            }
+//        }
+//        .navigationTitle("Товары")
+//        .toolbar{
+//            NavigationLink(destination: AddProdukt()) {
+//                Image(systemName: "plus")
+//                    .font(.title)
+//                    .padding()
+//        }
+//
+//
+//   }
 }
 
 struct Catalog_Previews: PreviewProvider {
     static var previews: some View {
-        Catalog(products: .constant(Product.products))
+        Catalog(products: .constant(Product.products),
+    saveAction: {})
     }
 }

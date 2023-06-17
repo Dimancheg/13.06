@@ -102,7 +102,7 @@ struct AuthView: View {
         .ignoresSafeArea()
         .animation(Animation.easeInOut(duration: 0.5), value: isAuth)
         .fullScreenCover(isPresented: $isTabViewShow){
-            MainTabBar(products: products)
+            MainTabBar(products: $products)
         }
             
         

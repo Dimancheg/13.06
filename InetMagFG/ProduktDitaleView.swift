@@ -10,7 +10,9 @@ import SwiftUI
 struct ProduktDitaleView: View {
     @Binding var product: Product
     @State private var swich: Bool = false
-    
+    @State private var razmerA = ""
+    @State private var razmerR = ""
+    @State private var razmerB = ""
     @State private var newNameProduct = ""
     
     
@@ -32,35 +34,35 @@ struct ProduktDitaleView: View {
                         .padding(.horizontal)
                 }else {
                     
-                        TextField(product.name, text: $newNameProduct)
-                            .onChange(of: newNameProduct){ newValue in
-                                product.name = newValue
+                    TextField(product.name, text: $newNameProduct)
+                        .onChange(of: newNameProduct){ newValue in
+                            product.name = newValue
+                        }
+                        .font(.title.bold())
+                    
+                        .padding(3)
+                        .cornerRadius(10)
+                        .border(.black, width: 1)
+                        .padding(13)
+                    
+                    
+                    TextField(String(product.price), text: Binding(
+                        get: {String(product.price)},
+                        set: { newValue in
+                            if let intValue = Int(newValue){
+                                product.price = intValue
                             }
-                            .font(.title.bold())
                             
-                            .padding(3)
-                            .cornerRadius(10)
-                            .border(.black, width: 1)
-                            .padding(13)
-                            
-                        
-                        TextField(String(product.price), text: Binding(
-                            get: {String(product.price)},
-                            set: { newValue in
-                                if let intValue = Int(newValue){
-                                    product.price = intValue
-                                }
-                                
-                            }
-                                                              ))
-                            
-                            .font(.title)
-                            .keyboardType(.numberPad)
-                        
-                            
-                            .cornerRadius(10)
-                            .padding(.horizontal)
-                        
+                        }
+                    ))
+                    
+                    .font(.title)
+                    .keyboardType(.numberPad)
+                    
+                    
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                    
                     
                     
                 }
@@ -69,15 +71,41 @@ struct ProduktDitaleView: View {
                     Text("Ашдод:")
                         .font(.title2.bold())
                         .padding(.horizontal)
-                    ForEach(product.ashdod, id: \.self) { item in
-                        Text(item)
-                            .font(.title3.bold())
-                            .padding(4)
-                            .padding(.horizontal, 8)
-                            .background(Color(.green))
+                    VStack{
+                        ForEach(product.ashdod.chunked(into: 4), id: \.self) { chunk in
+                            HStack{
+                                ForEach(chunk, id: \.self){ chunk in
+                                    Text(chunk)
+                                        .font(.title3.bold())
+                                        .padding(4)
+                                        .padding(.horizontal, 8)
+                                        .background(Color(.green))
+                                        .cornerRadius(10)
+                                }
+                            }
+                            
+                        }
+                    }
+                    
+                }
+                if swich{
+                    HStack{
+                        TextField("Размер", text: $razmerA)
+                            .font(.title.bold())
+                            .padding(3)
                             .cornerRadius(10)
+                            .border(.black, width: 1)
+                            .padding(.horizontal)
+                        Button(action: {
+                            product.ashdod.append(razmerA)
+                        }){
+                            Image(systemName: "plus")
+                                .font(.title)
+                                .padding(.horizontal)
+                        }
                     }
                 }
+                
                 HStack{
                     Text("Ришон:")
                         .font(.title2.bold())
@@ -91,6 +119,24 @@ struct ProduktDitaleView: View {
                             .cornerRadius(10)
                     }
                 }
+                if swich{
+                    HStack{
+                        TextField("Размер", text: $razmerR)
+                            .font(.title.bold())
+                            .padding(3)
+                            .cornerRadius(10)
+                            .border(.black, width: 1)
+                            .padding(.horizontal)
+                        Button(action: {
+                            product.rishon.append(razmerR)
+                        }){
+                            Image(systemName: "plus")
+                                .font(.title)
+                                .padding(.horizontal)
+                        }
+                    }
+                }
+                
                 HStack{
                     Text("Бат-Ям:")
                         .font(.title2.bold())
@@ -106,13 +152,28 @@ struct ProduktDitaleView: View {
                     }
                     
                 }
-                .padding(.bottom, 100)
-                
-                
-                
-                
-                
+                if swich{
+                    HStack{
+                        TextField("Размер", text: $razmerB)
+                            .font(.title.bold())
+                            .padding(3)
+                            .cornerRadius(10)
+                            .border(.black, width: 1)
+                            .padding(.horizontal)
+                        Button(action: {
+                            product.batyam.append(razmerB)
+                        }){
+                            Image(systemName: "plus")
+                                .font(.title)
+                                .padding(.horizontal)
+                        }
+                    }
+                    
+                    
+                }
+            
             }
+            .padding(.bottom, 100)
         }
         
         .ignoresSafeArea()
