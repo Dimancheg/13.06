@@ -29,9 +29,16 @@ struct ProduktDitaleView: View {
                     Text("\(product.name)")
                         .font(.title.bold())
                         .padding()
-                    Text("\(product.price)₪")
-                        .font(.title)
-                        .padding(.horizontal)
+                    HStack{
+                        Text("\(product.price)₪")
+                            .font(.title)
+                            .padding(.horizontal)
+                        Spacer()
+                        Text("\(product.group)")
+                            .font(.title)
+                            .padding(.horizontal)
+                    }
+                    
                 }else {
                     
                     TextField(product.name, text: $newNameProduct)
@@ -44,24 +51,31 @@ struct ProduktDitaleView: View {
                         .cornerRadius(10)
                         .border(.black, width: 1)
                         .padding(13)
-                    
-                    
-                    TextField(String(product.price), text: Binding(
-                        get: {String(product.price)},
-                        set: { newValue in
-                            if let intValue = Int(newValue){
-                                product.price = intValue
+                    HStack{
+                        TextField(String(product.price), text: Binding(
+                            get: {String(product.price)},
+                            set: { newValue in
+                                if let intValue = Int(newValue){
+                                    product.price = intValue
+                                }
+                                
                             }
-                            
+                        ))
+                        .font(.title)
+                        .keyboardType(.numberPad)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                        Picker(selection: .constant(3), label: Text("Picker")) {
+                            Text("1").tag(1)
+                            Text("2").tag(2)
+                            Text("3").tag(3)
+                            Text("4").tag(4)
                         }
-                    ))
+                        .padding()
+                        .font(.title)
+                        .padding(.horizontal)
+                    }
                     
-                    .font(.title)
-                    .keyboardType(.numberPad)
-                    
-                    
-                    .cornerRadius(10)
-                    .padding(.horizontal)
                     
                     
                     
@@ -110,13 +124,20 @@ struct ProduktDitaleView: View {
                     Text("Ришон:")
                         .font(.title2.bold())
                         .padding(.horizontal)
-                    ForEach(product.rishon, id: \.self) { item in
-                        Text(item)
-                            .font(.title3.bold())
-                            .padding(4)
-                            .padding(.horizontal, 8)
-                            .background(Color(.green))
-                            .cornerRadius(10)
+                    VStack{
+                        ForEach(product.rishon.chunked(into: 4), id: \.self) { chunk in
+                            HStack{
+                                ForEach(chunk, id: \.self){chunk in
+                                    Text(chunk)
+                                        .font(.title3.bold())
+                                        .padding(4)
+                                        .padding(.horizontal, 8)
+                                        .background(Color(.green))
+                                        .cornerRadius(10)
+                                }
+                            }
+                            
+                        }
                     }
                 }
                 if swich{
@@ -142,13 +163,20 @@ struct ProduktDitaleView: View {
                         .font(.title2.bold())
                         .padding(.horizontal)
                     
-                    ForEach(product.batyam, id: \.self) { item in
-                        Text(item)
-                            .font(.title3.bold())
-                            .padding(4)
-                            .padding(.horizontal, 8)
-                            .background(Color(.green))
-                            .cornerRadius(10)
+                    VStack{
+                        ForEach(product.batyam.chunked(into: 4), id: \.self) { chunk in
+                            HStack{
+                                ForEach(chunk, id: \.self){ chunk in
+                                    Text(chunk)
+                                        .font(.title3.bold())
+                                        .padding(4)
+                                        .padding(.horizontal, 8)
+                                        .background(Color(.green))
+                                        .cornerRadius(10)
+                                }
+                            }
+                            
+                        }
                     }
                     
                 }
@@ -171,7 +199,7 @@ struct ProduktDitaleView: View {
                     
                     
                 }
-            
+                
             }
             .padding(.bottom, 100)
         }
