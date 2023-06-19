@@ -51,6 +51,9 @@ struct ProduktDitaleView: View {
                         .cornerRadius(10)
                         .border(.black, width: 1)
                         .padding(13)
+                        .onAppear{
+                            newNameProduct = product.name
+                        }
                     HStack{
                         TextField(String(product.price), text: Binding(
                             get: {String(product.price)},
@@ -65,6 +68,10 @@ struct ProduktDitaleView: View {
                         .keyboardType(.numberPad)
                         .cornerRadius(10)
                         .padding(.horizontal)
+                        .multilineTextAlignment(.trailing)
+                        .frame(width: 60, height: 50)
+                        Text("₪")
+                            .font(.title)
                         Picker(selection: .constant(3), label: Text("Picker")) {
                             Text("1").tag(1)
                             Text("2").tag(2)
@@ -112,6 +119,7 @@ struct ProduktDitaleView: View {
                             .padding(.horizontal)
                         Button(action: {
                             product.ashdod.append(razmerA)
+                            razmerA = ""
                         }){
                             Image(systemName: "plus")
                                 .font(.title)
@@ -150,6 +158,7 @@ struct ProduktDitaleView: View {
                             .padding(.horizontal)
                         Button(action: {
                             product.rishon.append(razmerR)
+                            razmerR = ""
                         }){
                             Image(systemName: "plus")
                                 .font(.title)
@@ -190,6 +199,7 @@ struct ProduktDitaleView: View {
                             .padding(.horizontal)
                         Button(action: {
                             product.batyam.append(razmerB)
+                            razmerB = ""
                         }){
                             Image(systemName: "plus")
                                 .font(.title)

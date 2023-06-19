@@ -27,7 +27,8 @@ struct Catalog: View {
                         }
                         .swipeActions{
                             Button(action: {
-                                
+                                products.removeAll(where: { $0.id == product.id })
+                                saveAction()
                             }){
                                 Label("Удалить", systemImage: "trash")
                             }
@@ -39,7 +40,7 @@ struct Catalog: View {
                 .listRowSeparator(.hidden)
                 .navigationBarTitle("Товары")
                 .toolbar{
-                    NavigationLink(destination: AddProdukt()){
+                    NavigationLink(destination: AddProdukt(products: $products, saveAction: saveAction)){
                      Image(systemName: "plus")
                             .font(.title)
                             .padding()

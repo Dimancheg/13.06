@@ -44,6 +44,17 @@ struct Product: Identifiable, Codable {
 }
 
 extension Product {
+    static var emtyProduct: Product{
+        Product(id: UUID(),
+                name: "",
+                image: "",
+                group: "",
+                price: 0,
+                ashdod: [""],
+                rishon: [""],
+                batyam: [""])
+    }
+    
     static let products:[Product] = [
         Product(
             id: UUID(),

@@ -9,9 +9,10 @@ import SwiftUI
 
 struct AddProdukt: View {
     
-    @State private var prodactName = ""
-    
-    @State private var produktPrise = 0
+    @State private var newProduct = Product.emtyProduct
+    @Binding var products: [Product]
+    let saveAction: () -> Void
+    @Environment(\.dismiss) var dismiss
     
     
     var body: some View {
@@ -24,17 +25,17 @@ struct AddProdukt: View {
                 .frame(height: screan.height * 0.4)
                 .clipped()
             
-            TextField("Название товара", text: $prodactName)
+            TextField("Название товара", text: $newProduct.name)
                 .font(.title.bold())
                 .padding(3)
                 .cornerRadius(10)
                 .border(.black, width: 1)
                 .padding(.horizontal)
             TextField("Цена", text: Binding(
-                get: {String(produktPrise)},
+                get: {String(newProduct.price)},
                 set: { newValue in
                     if let intValue = Int(newValue){
-                        produktPrise = intValue
+                        newProduct.price = intValue
                     }
                     
                 }
@@ -45,8 +46,21 @@ struct AddProdukt: View {
             .cornerRadius(10)
             .border(.black, width: 1)
             .padding(.horizontal)
+            Picker(selection: .constant(0), label: Text("Picker")) {
+                Text("Футболки").tag(1)
+                Text("Штаны").tag(2)
+                Text("Кофты").tag(3)
+                Text("Брюки").tag(4)
+            }
+            .padding()
+            .font(.title.bold())
+            
          
-            Button("Добавить") {}
+            Button("Добавить") {
+                products.append(newProduct)
+                saveAction()
+                dismiss()
+            }
                 .padding()
                 .padding(.horizontal, 40)
                 .frame(maxWidth: .infinity)
@@ -67,6 +81,6 @@ struct AddProdukt: View {
 
 struct AddProdukt_Previews: PreviewProvider {
     static var previews: some View {
-        AddProdukt()
+        AddProdukt(products: .constant(Product.products), saveAction: {})
     }
 }
