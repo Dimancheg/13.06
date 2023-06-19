@@ -20,6 +20,7 @@
 		B8A67F062A15FD8F0063B90E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8A67F052A15FD8F0063B90E /* Assets.xcassets */; };
 		B8A67F092A15FD8F0063B90E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8A67F082A15FD8F0063B90E /* Preview Assets.xcassets */; };
 		B8E0CCF42A3AE5180090F610 /* AddProdukt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E0CCF32A3AE5170090F610 /* AddProdukt.swift */; };
+		B8EE146F2A406AAC00193222 /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EE146E2A406AAC00193222 /* ProductStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		B8A67F052A15FD8F0063B90E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8A67F082A15FD8F0063B90E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8E0CCF32A3AE5170090F610 /* AddProdukt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProdukt.swift; sourceTree = "<group>"; };
+		B8EE146E2A406AAC00193222 /* ProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				B8068BF92A17740A00B39E8B /* Product.swift */,
+				B8EE146E2A406AAC00193222 /* ProductStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				B864BC0F2A17590B00312EDC /* MainTabBar.swift in Sources */,
 				B864BC152A175D0100312EDC /* Profil.swift in Sources */,
 				B8A67F042A15FD8B0063B90E /* AuthView.swift in Sources */,
+				B8EE146F2A406AAC00193222 /* ProductStore.swift in Sources */,
 				B8068C032A17A5D500B39E8B /* ProduktDitaleView.swift in Sources */,
 				B864BC132A175CD200312EDC /* Cart.swift in Sources */,
 				B8A67F022A15FD8B0063B90E /* InetMagFGApp.swift in Sources */,

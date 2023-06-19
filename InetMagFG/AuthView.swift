@@ -16,7 +16,8 @@ struct AuthView: View {
     
     @State private var isTabViewShow = false
     
-    @State var products: [Product]
+    //@State var products: [Product]
+    @StateObject private var store = ProductStore()
     
     var body: some View {
         VStack (spacing: 40){
@@ -102,7 +103,22 @@ struct AuthView: View {
         .ignoresSafeArea()
         .animation(Animation.easeInOut(duration: 0.5), value: isAuth)
         .fullScreenCover(isPresented: $isTabViewShow){
-            MainTabBar(products: $products)
+            MainTabBar(products: $store.products){
+                Task{
+                    do{
+                        try await store.saveProduct(products: store.products)
+                    }catch {
+                        fatalError(error.localizedDescription)
+                    }
+                }
+            }
+            .task {
+                do {
+                    try await store.loadProduct()
+                }catch {
+                    fatalError(error.localizedDescription)
+                }
+            }
         }
             
         
@@ -112,6 +128,6 @@ struct AuthView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView(products: Product.products)
+        AuthView()
     }
 }
