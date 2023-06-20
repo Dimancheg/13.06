@@ -57,6 +57,7 @@ struct AddProdukt: View {
             
          
             Button("Добавить") {
+                
                 products.append(newProduct)
                 saveAction()
                 dismiss()

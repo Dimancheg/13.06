@@ -47,7 +47,7 @@ extension Product {
     static var emtyProduct: Product{
         Product(id: UUID(),
                 name: "",
-                image: "",
+                image: "phot",
                 group: "",
                 price: 0,
                 ashdod: [""],
