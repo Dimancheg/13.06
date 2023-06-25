@@ -23,7 +23,7 @@ struct ProduktDitaleView: View {
                 Image(product.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: screan.height * 0.7)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.7)
                     .clipped()
                 if !swich {
                     Text("\(product.name)")
@@ -69,7 +69,7 @@ struct ProduktDitaleView: View {
                         .cornerRadius(10)
                         .padding(.horizontal)
                         .multilineTextAlignment(.trailing)
-                        .frame(width: 60, height: 50)
+                        .frame(width: 80, height: 50)
                         Text("₪")
                             .font(.title)
                         Picker(selection: .constant(3), label: Text("Picker")) {
