@@ -69,7 +69,7 @@ struct ProduktDitaleView: View {
                         .cornerRadius(10)
                         .padding(.horizontal)
                         .multilineTextAlignment(.trailing)
-                        .frame(width: 80, height: 50)
+                        .frame(width: 90, height: 50)
                         Text("₪")
                             .font(.title)
                         Picker(selection: .constant(3), label: Text("Picker")) {

@@ -50,9 +50,9 @@ extension Product {
                 image: "phot",
                 group: "",
                 price: 0,
-                ashdod: [""],
-                rishon: [""],
-                batyam: [""])
+                ashdod: [],
+                rishon: [],
+                batyam: [])
     }
     
     static let products:[Product] = [
