@@ -72,11 +72,11 @@ struct ProduktDitaleView: View {
                         .frame(width: 90, height: 50)
                         Text("₪")
                             .font(.title)
-                        Picker(selection: .constant(3), label: Text("Picker")) {
-                            Text("1").tag(1)
-                            Text("2").tag(2)
-                            Text("3").tag(3)
-                            Text("4").tag(4)
+                        Picker(selection: $product.group, label: Text("Picker")) {
+                            Text("Футболки").tag(1)
+                            Text("Платья").tag(2)
+                            Text("Юбки").tag(3)
+                            Text("Шорты").tag(4)
                         }
                         .padding()
                         .font(.title)
