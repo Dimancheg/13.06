@@ -8,8 +8,34 @@
 import SwiftUI
 
 struct Profil: View {
+    
+    @State private var newGroap = ""
+   
     var body: some View {
-        Text("Профиль!!!")
+        VStack{
+            Text("Профиль")
+                .font(.title)
+            
+            List{
+                Text("Группы товара:")
+                    .font(.title3)
+                ForEach(group, id: \.self){group in
+                    Text(group)
+                }
+            }
+            HStack{
+                TextField("Введите название группы", text: $newGroap)
+                Button("Добавить"){
+                    group.append(newGroap)
+                    newGroap = ""
+                }
+                .padding()
+            }
+            
+        
+        }
+        
+        
     }
 }
 

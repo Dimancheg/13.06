@@ -43,7 +43,7 @@ struct Product: Identifiable, Codable {
     
 }
 
-let group = ["Футболки", "Платья", "Юбки", "Пальто", "Блузки", "Куртки"]
+var group = ["Футболки", "Платья", "Юбки", "Пальто", "Блузки", "Куртки"]
 
 extension Product {
     static var emtyProduct: Product{
