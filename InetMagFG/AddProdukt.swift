@@ -13,6 +13,7 @@ struct AddProdukt: View {
     @Binding var products: [Product]
     let saveAction: () -> Void
     @Environment(\.dismiss) var dismiss
+    @State private var selectorGroup = "Выберите группу"
     
     
     var body: some View {
@@ -46,15 +47,16 @@ struct AddProdukt: View {
             .cornerRadius(10)
             .border(.black, width: 1)
             .padding(.horizontal)
-            Picker(selection: .constant(0), label: Text("Picker")) {
-                Text("Футболки").tag(1)
-                Text("Штаны").tag(2)
-                Text("Кофты").tag(3)
-                Text("Брюки").tag(4)
+            Picker("Select a group", selection: $selectorGroup) {
+                ForEach(group, id: \.self){ group in
+                    Text(group)
+                }
             }
             .padding()
             .font(.title.bold())
-            
+            .onChange(of: selectorGroup){ newGroup in
+                newProduct.group = newGroup
+            }
          
             Button("Добавить") {
                 

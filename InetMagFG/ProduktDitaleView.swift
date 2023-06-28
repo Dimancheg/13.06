@@ -14,6 +14,7 @@ struct ProduktDitaleView: View {
     @State private var razmerR = ""
     @State private var razmerB = ""
     @State private var newNameProduct = ""
+    @State private var selectorGroup = "Выберите группу"
     
     
     var body: some View {
@@ -72,15 +73,18 @@ struct ProduktDitaleView: View {
                         .frame(width: 90, height: 50)
                         Text("₪")
                             .font(.title)
-                        Picker(selection: $product.group, label: Text("Picker")) {
-                            Text("Футболки").tag(1)
-                            Text("Платья").tag(2)
-                            Text("Юбки").tag(3)
-                            Text("Шорты").tag(4)
+                        Picker("Select a group", selection: $selectorGroup) {
+                            ForEach(group, id: \.self){ group in
+                                Text(group)
+                            }
+                            .padding()
+                            .font(.title)
+                            .padding(.horizontal)
+                            .onChange(of: selectorGroup){ newGroup in
+                                product.group = newGroup
+                            }
                         }
-                        .padding()
-                        .font(.title)
-                        .padding(.horizontal)
+                        
                     }
                     
                     
